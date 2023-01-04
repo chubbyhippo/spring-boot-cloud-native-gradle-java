@@ -15,6 +15,8 @@ class ConfigServiceApplicationTests {
 
     @Autowired
     private TestRestTemplate restTemplate;
+    @Autowired
+    private WebTestClient webTestClient;
 
     @Test
     void contextLoads() {
@@ -27,4 +29,12 @@ class ConfigServiceApplicationTests {
         assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
+    @Test
+    void shouldDefaultConfigurationAvailableUsingWebTestClient() {
+        webTestClient.get()
+                .uri("/application/default")
+                .exchange()
+                .expectStatus()
+                .isOk();
+    }
 }
