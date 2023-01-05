@@ -18,5 +18,12 @@ spring:
       request-connect-timeout: 5000 # 5s
       request-read-timeout: 5000 # 5s
       fail-fast: false # In production, set to true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
 example:
   greeting: Welcome to the local book catalog!
