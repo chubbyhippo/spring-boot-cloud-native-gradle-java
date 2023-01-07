@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres:15.1
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: exampledb_catalog
+    ports:
+      - "5432:5432"
