@@ -19,8 +19,9 @@ public class BookDataLoader {
     @Bean
     public CommandLineRunner loadBookData() {
         return args -> {
-            var book1 = new Book("1234567891", "Chubby Hippo Journey", "Chubby Hippo", 9.90);
-            var book2 = new Book("1234567892", "Hippo Hippo", "Hippo Son", 12.90);
+            bookRepository.deleteAll();
+            var book1 = Book.of("1234567891", "Hippo Journey", "Lil Hip", 9.90, "ChubbyHippo");
+            var book2 = Book.of("1234567892", "Hippology", "Big Hip", 12.90, "ChubbyHippo");
             bookRepository.save(book1);
             bookRepository.save(book2);
         };
