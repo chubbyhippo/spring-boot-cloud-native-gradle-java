@@ -1,3 +1,4 @@
+include('../../platform/development/services/Tiltfile')
 include('../../../../config-service/Tiltfile')
 include('../../../../catalog-service/Tiltfile')
 
