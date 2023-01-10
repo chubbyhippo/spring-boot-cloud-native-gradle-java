@@ -1,0 +1,4 @@
+# Deploy
+k8s_yaml('postgresql.yml')
+
+k8s_resource('example-postgres', port_forwards=['5432'])
