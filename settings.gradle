@@ -1,0 +1,5 @@
+rootProject.name = 'spring-boot-cloud-native-gradle-java'
+
+include 'config-service'
+include 'catalog-service'
+include 'order-service'
