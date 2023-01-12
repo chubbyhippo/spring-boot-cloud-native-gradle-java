@@ -17,7 +17,7 @@ class BookJsonTests {
     private JacksonTester<Book> json;
 
     @Test
-    void testSerialize() throws Exception {
+    void shouldSerialize() throws Exception {
         var now = Instant.now();
         var book = new Book(394L, "1234567890", "Title", "Author", 9.90, "Chubby Hippo", now, now, 21);
         var jsonContent = json.write(book);
@@ -42,7 +42,7 @@ class BookJsonTests {
     }
 
     @Test
-    void testDeserialize() throws Exception {
+    void shouldDeserialize() throws Exception {
         var instant = Instant.parse("2021-09-07T22:50:37.135029Z");
         var content = """
                 {
