@@ -1,5 +1,6 @@
 include('../../platform/development/services/Tiltfile')
 include('../../../../config-service/Tiltfile')
 include('../../../../catalog-service/Tiltfile')
+include('../../../../order-service/Tiltfile')
 
-update_settings(max_parallel_updates=1)
+update_settings(max_parallel_updates=4)
