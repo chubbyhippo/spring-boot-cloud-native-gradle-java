@@ -1,3 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  labels:
+    db: example-postgres
+data:
+  init.sql: |
+    CREATE DATABASE exampledb_catalog;
+    CREATE DATABASE exampledb_order;
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,14 +27,12 @@ spec:
     spec:
       containers:
         - name: example-postgres
-          image: postgres:14.4
+          image: postgres:15.1
           env:
             - name: POSTGRES_USER
               value: user
             - name: POSTGRES_PASSWORD
               value: password
-            - name: POSTGRES_DB
-              value: exampledb_catalog
           resources:
             requests:
               cpu: 100m
@@ -30,6 +40,13 @@ spec:
             limits:
               cpu: 200m
               memory: 120Mi
+          volumeMounts:
+            - mountPath: /docker-entrypoint-initdb.d
+              name: postgres-config-volume
+      volumes:
+        - name: postgres-config-volume
+          configMap:
+            name: postgres-config
 
 ---
 
