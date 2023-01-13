@@ -1,0 +1,4 @@
+# Deploy
+k8s_yaml('redis.yml')
+
+k8s_resource('example-redis', port_forwards=['6379'])
