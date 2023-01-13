@@ -1,6 +1,8 @@
-include('../../platform/development/services/Tiltfile')
-include('../../../../config-service/Tiltfile')
+include('../../platform/development/services/postgres/Tiltfile')
+include('../../platform/development/services/redis/Tiltfile')
+include('../../../../edge-service/Tiltfile')
 include('../../../../catalog-service/Tiltfile')
 include('../../../../order-service/Tiltfile')
+include('../../../../config-service/Tiltfile')
 
 update_settings(max_parallel_updates=4)
