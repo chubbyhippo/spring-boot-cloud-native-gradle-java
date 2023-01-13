@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-redis
+  labels:
+    db: example-redis
+spec:
+  selector:
+    matchLabels:
+      db: example-redis
+  template:
+    metadata:
+      labels:
+        db: example-redis
+    spec:
+      containers:
+        - name: example-redis
+          image: redis:7.0
+          resources:
+            requests:
+              cpu: 100m
+              memory: 50Mi
+            limits:
+              cpu: 200m
+              memory: 100Mi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-redis
+  labels:
+    db: example-redis
+spec:
+  type: ClusterIP
+  selector:
+    db: example-redis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
