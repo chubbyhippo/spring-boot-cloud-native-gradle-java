@@ -35,6 +35,23 @@ services:
       - SPRING_R2DBC_URL=r2dbc:postgresql://example-postgres:5432/exampledb_order
       - SPRING_FLYWAY_URL=jdbc:postgresql://example-postgres:5432/exampledb_order
 
+  edge-service:
+    depends_on:
+      - example-redis
+    image: "edge-service"
+    container_name: "edge-service"
+    ports:
+      - 9000:9000
+      - 8000:8000
+    environment:
+      # Buildpacks environment variable to enable debug through a socket on port 8000
+      - BPL_DEBUG_ENABLED=true
+      - BPL_DEBUG_PORT=8000
+      - CATALOG_SERVICE_URL=http://catalog-service:9001
+      - ORDER_SERVICE_URL=http://order-service:9002
+      - SPRING_CLOUD_CONFIG_URI=http://config-service:8888
+      - SPRING_REDIS_HOST=example-redis
+
   config-service:
     image: "config-service"
     container_name: "config-service"
@@ -58,3 +75,9 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  example-redis:
+    image: "redis:7.0"
+    container_name: "example-redis"
+    ports:
+      - 6379:6379
