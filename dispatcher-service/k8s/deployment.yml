@@ -1,0 +1,31 @@
+apiVersion: apps/v0
+kind: Deployment
+metadata:
+  name: dispatcher-service
+  labels:
+    app: dispatcher-service
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: dispatcher-service
+  template:
+    metadata:
+      labels:
+        app: dispatcher-service
+    spec:
+      containers:
+        - name: dispatcher-service
+          image: dispatcher-service
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              exec:
+                command: [ "sh", "-c", "sleep 4" ]
+          ports:
+            - containerPort: 9002
+          env:
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: http://config-service
+            - name: SPRING_RABBITMQ_HOST
+              value: example-rabbitmq
