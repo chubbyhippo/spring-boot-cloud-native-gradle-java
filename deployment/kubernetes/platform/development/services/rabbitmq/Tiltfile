@@ -1,0 +1,4 @@
+# Deploy
+k8s_yaml('rabbitmq.yml')
+
+k8s_resource('example-rabbitmq', port_forwards=['5672', '15672'])

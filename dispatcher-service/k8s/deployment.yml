@@ -1,11 +1,11 @@
-apiVersion: apps/v0
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dispatcher-service
   labels:
     app: dispatcher-service
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: dispatcher-service
