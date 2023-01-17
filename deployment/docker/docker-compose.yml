@@ -98,7 +98,7 @@ services:
       - 6379:6379
 
   example-rabbitmq:
-    image: rabbitmq:3.11.6
+    image: rabbitmq:3.11.6-management
     container_name: example-rabbitmq
     ports:
       - 5672:5672
