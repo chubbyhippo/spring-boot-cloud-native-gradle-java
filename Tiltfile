@@ -1,0 +1,10 @@
+include('./deployment/kubernetes/platform/development/services/postgres/Tiltfile')
+include('./deployment/kubernetes/platform/development/services/redis/Tiltfile')
+include('./deployment/kubernetes/platform/development/services/rabbitmq/Tiltfile')
+include('./edge-service/Tiltfile')
+include('./catalog-service/Tiltfile')
+include('./order-service/Tiltfile')
+include('./dispatcher-service/Tiltfile')
+include('./config-service/Tiltfile')
+
+update_settings(max_parallel_updates=4)
