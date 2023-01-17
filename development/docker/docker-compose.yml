@@ -11,6 +11,12 @@ services:
     volumes:
       - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql
 
+  example-redis:
+    image: "redis:7.0"
+    container_name: "example-redis"
+    ports:
+      - 6379:6379
+
   example-rabbitmq:
     image: rabbitmq:3.11.6-management
     container_name: example-rabbitmq
