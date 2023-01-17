@@ -6,7 +6,9 @@ Vagrant.configure("2") do |config|
     end
     config.vm.synced_folder ".", "/home/vagrant/dev"
     config.vm.network "forwarded_port", guest: 10350, host: 10350
+    config.vm.network "forwarded_port", guest: 55555, host: 55555
     config.vm.network "forwarded_port", guest: 9000, host: 8080
+    config.vm.network "forwarded_port", guest: 5672, host: 5672
     config.vm.network "forwarded_port", guest: 15672, host: 15672
     config.vm.provision "shell", reboot: true, inline: <<-SHELL
         sudo pacman -Syu --noconfirm
