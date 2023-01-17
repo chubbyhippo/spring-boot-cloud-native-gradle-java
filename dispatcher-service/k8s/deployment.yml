@@ -23,7 +23,7 @@ spec:
               exec:
                 command: [ "sh", "-c", "sleep 4" ]
           ports:
-            - containerPort: 9002
+            - containerPort: 9003
           env:
             - name: SPRING_CLOUD_CONFIG_URI
               value: http://config-service
