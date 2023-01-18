@@ -41,7 +41,7 @@ services:
     image: "edge-service"
     container_name: "edge-service"
     ports:
-      - 8080:8080
+      - 9000:9000
       - 8000:8000
     environment:
       # Buildpacks environment variable to enable debug through a socket on port 8000
