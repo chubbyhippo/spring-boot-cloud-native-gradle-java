@@ -25,10 +25,12 @@ spec:
           ports:
             - containerPort: 9002
           env:
-            - name: POLAR_CATALOG_SERVICE_URI
+            - name: EXAMPLE_CATALOG_SERVICE_URI
               value: http://catalog-service
             - name: SPRING_CLOUD_CONFIG_URI
               value: http://config-service
+            - name: SPRING_RABBITMQ_HOST
+              value: example-rabbitmq
             - name: SPRING_R2DBC_URL
               value: r2dbc:postgresql://example-postgres/exampledb_order
             - name: SPRING_FLYWAY_URL
