@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
         sudo pacman -S --noconfirm docker docker-compose kubectl minikube jdk-openjdk
         sudo usermod -aG docker vagrant
         sudo systemctl enable docker.service
-        sudo runuser -l vagrant -c "curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash"
+        curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
     SHELL
     config.vm.provision "shell", run: "always", inline: <<-SHELL
         export JAVA_HOME=/usr/lib/jvm/default
