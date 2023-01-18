@@ -1,0 +1,125 @@
+_type: export
+__export_format: 4
+__export_date: 2023-01-18T09:20:16.796Z
+__export_source: insomnia.desktop.app:v2022.7.3
+resources:
+  - _id: req_ee42aaa439e94df0b52d4103badd6ded
+    parentId: wrk_79bb905b89764846b29cfd66dbee4287
+    modified: 1674010321519
+    created: 1674010129745
+    url: localhost:8080/books
+    name: Get books
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1674010129745
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_79bb905b89764846b29cfd66dbee4287
+    parentId: null
+    modified: 1674004996844
+    created: 1674004996844
+    name: spring-boot-cloud-native
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_65f25c3bd40c4d21a11587bee8be243d
+    parentId: wrk_79bb905b89764846b29cfd66dbee4287
+    modified: 1674011232563
+    created: 1674010009052
+    url: localhost:8080/books
+    name: Add new book
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"author": "Hippy",
+        	"title": "Hippy 2",
+        	"isbn": "1234567898",
+        	"price": 9.99,
+        	"publisher": "Hippo Pub"
+        }
+    parameters: []
+    headers:
+      - id: pair_3c839b03f7b046289582f050d4088651
+        name: ""
+        value: ""
+        description: ""
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1674010009052
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6f252b62c50d4a1592aa8db12f836f6c
+    parentId: wrk_79bb905b89764846b29cfd66dbee4287
+    modified: 1674018608645
+    created: 1674010760721
+    url: localhost:8080/orders
+    name: Order books
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"isbn": "1234567898",
+        	"quantity": 3
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1674010009002
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_6204ba708d1132b1123cc14d02bac9d15cdb96ea
+    parentId: wrk_79bb905b89764846b29cfd66dbee4287
+    modified: 1674004996851
+    created: 1674004996851
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1674004996851
+    _type: environment
+  - _id: jar_6204ba708d1132b1123cc14d02bac9d15cdb96ea
+    parentId: wrk_79bb905b89764846b29cfd66dbee4287
+    modified: 1674004996852
+    created: 1674004996852
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_0f9db3bda1804385a67b0697f14565cc
+    parentId: wrk_79bb905b89764846b29cfd66dbee4287
+    modified: 1674004996846
+    created: 1674004996846
+    fileName: spring-boot-cloud-native
+    contents: ""
+    contentType: yaml
+    _type: api_spec
