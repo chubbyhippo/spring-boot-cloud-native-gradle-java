@@ -7,4 +7,4 @@ include('./order-service/Tiltfile')
 include('./dispatcher-service/Tiltfile')
 include('./config-service/Tiltfile')
 
-update_settings(max_parallel_updates=4)
+update_settings(max_parallel_updates=1)
