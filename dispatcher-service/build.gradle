@@ -1,19 +1,19 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.3'
+	id 'org.springframework.boot' version '3.0.5'
 	id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '19'
+sourceCompatibility = '17'
 
 repositories {
 	mavenCentral()
 }
 
 ext {
-	set('springCloudVersion', "2022.0.0")
+	set('springCloudVersion', "2022.0.1")
 }
 
 dependencies {
@@ -34,7 +34,7 @@ dependencyManagement {
 
 bootBuildImage {
 	imageName = "${project.name}"
-	environment = ["BP_JVM_VERSION": "19.*"]
+	environment = ["BP_JVM_VERSION": "17.*"]
 }
 
 tasks.named('test') {
