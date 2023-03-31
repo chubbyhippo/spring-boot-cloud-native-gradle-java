@@ -1,6 +1,6 @@
 ## Start minikube
 ```
-minikube start
+minikube start --driver=docker
 ```
 ```
 minikube addons enable ingress
