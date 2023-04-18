@@ -103,6 +103,12 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<imageName>${project.name}</imageName>
+					<profiles>
+						<profile>testdata</profile>
+					</profiles>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
